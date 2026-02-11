@@ -7,37 +7,57 @@ const MiFormulario = () => {
         email: "ejemplo@ejemplo.com",
         password: ""
     })
-
-    //metodo para capturar los datos
-    const activarPorEvento = (evento) => {
-        console.log('evento activado', evento.type);
+    
+    const procesarCambio = (evento) =>{
+        //recibimos valores: value, name (del control)
+        const {name, value} = evento.target;
+        setFormData((prevFormData) => ({
+            ...prevFormData, //tomamos el valor actual del FormData
+            [name]:value, //Solo modificamos el valor que se modifico
+        }))
     }
 
-    const inputActivado = (evento) => {
-        evento.stopPropagation();
-        console.log('input activado', evento.type);
-    }
-
-    const formularioActivado = (evento) => {
-        evento.stopPropagation();
-        console.log('formulario activado', evento.type);
+    const procesarSubmit = (evento) =>{
+        evento.preventDefault(); //Desactiva la recarga de la pagina
+        console.log(formData);
     }
 
     return (
         <div>
             <h2>Gestion de eventos y formularios</h2>
-            <form autoComplete='off' onClick={formularioActivado}>
+            <form autoComplete='off' onSubmit={procesarSubmit}>
                 <div>
                     <label className="form-label" htmlFor="username">Usuario: </label>
-                    <input className="form-control" type="text" id='username' name='username' value={formData.username}/>
+                    <input 
+                        className="form-control" 
+                        type="text" 
+                        id='username' 
+                        name='username' 
+                        value={formData.username}
+                        onChange={procesarCambio}
+                    />
                 </div>
                 <div>
                     <label className="form-label" htmlFor="email">Email: </label>
-                    <input className="form-control" type="text" id='email' name='email' value={formData.email}/>
+                    <input 
+                        className="form-control" 
+                        type="text" 
+                        id='email' 
+                        name='email' 
+                        value={formData.email}
+                        onChange={procesarCambio}
+                    />
                 </div>
                 <div>
                     <label className="form-label" htmlFor="password">Contraseña: </label>
-                    <input className="form-control" type="password" id='password' name='password' value={formData.password}/>
+                    <input 
+                        className="form-control" 
+                        type="password" 
+                        id='password' 
+                        name='password' 
+                        value={formData.password}
+                        onChange={procesarCambio}
+                    />
                 </div>
                 <br />
                 <button type='submit'>Enviar!</button>
