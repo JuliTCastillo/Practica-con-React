@@ -1,3 +1,6 @@
+import { Fragment } from "react";
+import ProductoItem from "./ProductoItem";
+
 const Catalogo = () => {
     const productos = [
         { id: 1, nombre: "Camiseta", precio: 20.99 },
@@ -9,23 +12,23 @@ const Catalogo = () => {
     ]
 
     return (
-        <>
+        <Fragment>
             <h2>Catalogo de productos</h2>
 
             {/* bloque condicional - condicional alternario */}
             {productos.length === 0 ? (
                 <p>No hay productos disponibles en el catalogo.</p>
             ) : (
-                <ul>
+                <div className="d-flex flex-wrap justify-content-center">
                     {productos.map(
-                        (prod, index) => (
-                            <li key={index}>{prod.nombre} - {prod.precio}</li>
+                        (prod) => (
+                            <ProductoItem key={prod.id} producto={prod}/>
                         )
                     )}
-                </ul>
+                </div>
             )}
-            
-        </>
+
+        </Fragment>
     )
 }
 
