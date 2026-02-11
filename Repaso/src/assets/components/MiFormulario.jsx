@@ -3,16 +3,26 @@ import React from 'react'
 const MiFormulario = () => {
     //metodo para capturar los datos
     const activarPorEvento = (evento) => {
-        console.log('evento activado', evento.type)
+        console.log('evento activado', evento.type);
+    }
+
+    const inputActivado = (evento) => {
+        evento.stopPropagation();
+        console.log('input activado', evento.type);
+    }
+
+    const formularioActivado = (evento) => {
+        evento.stopPropagation();
+        console.log('formulario activado', evento.type);
     }
 
     return (
         <div>
             <h2>Gestion de eventos y formularios</h2>
-            <form autoComplete='off'>
+            <form autoComplete='off' onClick={formularioActivado}>
                 <div>
                     <label className="form-label" htmlFor="username" onMouseOver={activarPorEvento}>Usuario: </label>
-                    <input className="form-control" type="text" id='username' name='username' />
+                    <input className="form-control" type="text" id='username' name='username' onClick={inputActivado}/>
                 </div>
                 <div>
                     <label className="form-label" htmlFor="email">Email: </label>
