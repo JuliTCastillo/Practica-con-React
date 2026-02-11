@@ -13,8 +13,8 @@ const Catalogo = () => {
             <h2>Catalogo de productos</h2> 
             <ul>
                 {productos.map(
-                    (prod) => (
-                        <li>{prod.nombre} - {prod.precio}</li>
+                    (prod, index) => (
+                        <li key={index}>{prod.nombre} - {prod.precio}</li>
                     )
                 )}
             </ul>
