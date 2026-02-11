@@ -8,16 +8,23 @@ const Catalogo = () => {
         { id: 6, nombre: "Medias", precio: 5.0 },
     ]
 
-    return(
+    return (
         <>
-            <h2>Catalogo de productos</h2> 
-            <ul>
-                {productos.map(
-                    (prod, index) => (
-                        <li key={index}>{prod.nombre} - {prod.precio}</li>
-                    )
-                )}
-            </ul>
+            <h2>Catalogo de productos</h2>
+
+            {/* bloque condicional - condicional alternario */}
+            {productos.length === 0 ? (
+                <p>No hay productos disponibles en el catalogo.</p>
+            ) : (
+                <ul>
+                    {productos.map(
+                        (prod, index) => (
+                            <li key={index}>{prod.nombre} - {prod.precio}</li>
+                        )
+                    )}
+                </ul>
+            )}
+            
         </>
     )
 }
