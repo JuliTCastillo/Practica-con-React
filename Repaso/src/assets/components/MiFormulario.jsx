@@ -2,8 +2,8 @@ import React from 'react'
 
 const MiFormulario = () => {
     //metodo para capturar los datos
-    const activarPorEvento = () => {
-        console.log('evento activado')
+    const activarPorEvento = (evento) => {
+        console.log('evento activado', evento.type)
     }
 
     return (
@@ -11,12 +11,12 @@ const MiFormulario = () => {
             <h2>Gestion de eventos y formularios</h2>
             <form autoComplete='off'>
                 <div>
-                    <label className="form-label" htmlFor="username">Usuario: </label>
+                    <label className="form-label" htmlFor="username" onMouseOver={activarPorEvento}>Usuario: </label>
                     <input className="form-control" type="text" id='username' name='username' />
                 </div>
                 <div>
                     <label className="form-label" htmlFor="email">Email: </label>
-                    <input className="form-control" type="text" id='email' name='email' />
+                    <input className="form-control" type="text" id='email' name='email' onChange={activarPorEvento}/>
                 </div>
                 <div>
                     <label className="form-label" htmlFor="password" onClick={activarPorEvento} >Contraseña: </label>
