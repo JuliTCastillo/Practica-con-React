@@ -1,13 +1,20 @@
 import './App.css'
-import ConstruyendoComponente from './assets/components/ConstruyendoComponente'
-import MiFormulario from './assets/components/MiFormulario'
-import Catalogo from './assets/components/Catalogo'
+import ListaCarrito from './assets/components/Ecommerce/ListaCarrito'
+import ListaProductos from './assets/components/Ecommerce/ListaProductos'
+import { DataProvider } from './assets/components/Ecommerce/DataContext'
+import { useEffect, useState } from 'react'
 
 function App() {
 
   return (
     <>
-      <Catalogo></Catalogo>
+      <div className='row'>
+        <DataProvider>
+          <ListaProductos/>
+          <ListaCarrito/>
+        </DataProvider>
+        
+      </div>
     </>
   )
 } 
