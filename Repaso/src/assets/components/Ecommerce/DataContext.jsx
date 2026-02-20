@@ -15,6 +15,7 @@ export const DataProvider = ({ children }) => {
             .catch(error => console.error('Error fetching data:', error)) //En el caso de que nos de error
     }, [])
 
+    //Informacion reactiva - El estado sera modificado a cualquier componente que se este compartiendo
     return (
         <DataContext.Provider value={{ data, setData }}>
             {children}
