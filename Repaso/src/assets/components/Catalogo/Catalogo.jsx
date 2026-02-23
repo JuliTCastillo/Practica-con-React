@@ -14,7 +14,7 @@ export const Catalogo = () => {
     ]
     return (
         <>
-            <div className="libros">
+            <div className="row">
                 {libros.map(
                     (libro) => (
                         <Libro key={libro.id} libro={libro}/>

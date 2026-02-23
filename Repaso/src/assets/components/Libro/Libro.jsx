@@ -11,9 +11,11 @@ export const Libro = ({libro}) => {
 
     return (
         <>
-            <div className='item'>
-                <Titulo>{libro.titulo}</Titulo>
-                <span>Publicado en {libro.publicado}</span>
+            <div className='card col-md-3'>
+                <div className='card-body'>
+                    <h5 className='card-title'>{libro.titulo}</h5>
+                    <p className='card-text'>Publicado en {libro.publicado}</p>
+                </div>
             </div>
         </>
     )
